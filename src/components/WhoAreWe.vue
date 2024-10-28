@@ -1,6 +1,11 @@
 <template>
   <section id="WhoAreWe" class="WhoAreWe-section">
     <div class="container">
+      <div class="btn-back">
+        <router-link to="/"
+          ><i class="fa-solid fa-chevron-left" style="color: #2450ff"></i
+        ></router-link>
+      </div>
       <div class="image-content">
         <img src="@/assets/WhoAreWe.png" alt="WhoAreWe Image 1" />
       </div>
@@ -39,7 +44,12 @@ export default {
   align-items: flex-start;
   position: relative;
 }
-
+.btn-back {
+  display: inline;
+  position: absolute;
+  font-size: 1.5em;
+  margin: -40px 50px 50px -120px;
+}
 .container {
   display: flex;
   flex-wrap: wrap;
@@ -85,9 +95,56 @@ img {
   max-width: 400px;
 }
 
+@media (max-width: 1024px) {
+  .WhoAreWe-section {
+    height: auto;
+  }
+  .btn-back {
+    display: flex;
+    font-size: 1.5em;
+    margin: -40px 0px 50px -850px;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .text-content {
+    margin-left: 0;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  .image-content {
+    margin-left: 100px;
+    width: 100%;
+  }
+
+  .image-absolute {
+    width: 80px;
+    margin: -55px -100px 0px 0px;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  p {
+    font-size: 0.8em;
+    max-width: 600px;
+  }
+}
+
 @media (max-width: 768px) {
   .WhoAreWe-section {
     height: auto;
+  }
+
+  .btn-back {
+    display: flex;
+    font-size: 1.5em;
+    margin: -40px 0px 50px -300px;
   }
 
   .container {
@@ -103,11 +160,11 @@ img {
 
   .image-content {
     margin-left: 0;
-    width: 100%;
+    width: 80%;
   }
 
   .image-absolute {
-    width: 80px;
+    width: 60px;
     margin: -55px 5px 0px 0px;
   }
 

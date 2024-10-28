@@ -28,9 +28,14 @@
         ></quill-editor>
       </div>
       <div class="right">
-        <div class="btn">
-          <button class="update">Update</button>
-          <button class="cancel">Cancel</button>
+        <div class="btn-double">
+          <router-link to="/morearticledoctor">
+            <button class="update">Update</button>
+          </router-link>
+
+          <router-link to="/morearticledoctor">
+            <button class="cancel">Cancel</button>
+          </router-link>
         </div>
         <form>
           <div class="form-group">
@@ -55,11 +60,10 @@
           </div>
           <div class="form-group">
             <label>Labels</label>
-            <input
+            <tags-input
               class="label"
-              type="text"
-              placeholder="Type the labels here"
-              required
+              v-model="labels"
+              placeholder="Type the labels here and press enter"
             />
           </div>
           <div class="form-group">
@@ -78,16 +82,19 @@
 <script>
 import { QuillEditor } from "@vueup/vue-quill";
 import "@vueup/vue-quill/dist/vue-quill.snow.css";
+import TagsInput from "vue3-tags-input";
 
 export default {
   name: "AddArticle",
   components: {
     QuillEditor,
+    TagsInput,
   },
   data() {
     return {
-      status: "Unpublish", // Default status
-      articleContent: "", // Untuk menyimpan konten artikel
+      status: "Unpublish",
+      articleContent: "",
+      labels: [],
       editorOptions: {
         placeholder: "Type the paragraphs here",
         theme: "snow",
@@ -104,11 +111,15 @@ export default {
               { align: "justify" },
             ],
 
-            ["image", "link"],
+            ["image", "link", "table"],
           ],
         },
       },
     };
+  },
+  mounted() {
+    const editorContainer = this.$el.querySelector(".ql-container");
+    editorContainer.style.height = "350px";
   },
   computed: {
     statusColor() {
@@ -131,7 +142,8 @@ export default {
 
 .card {
   margin: 30px 10px 30px 30px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0px 16px rgba(0, 0, 0, 0.3);
+  height: max-content;
 }
 
 .left {
@@ -143,7 +155,7 @@ export default {
   align-items: center;
   justify-content: space-between;
   padding: 0px 25px;
-  border-bottom: 1px solid rgb(192, 191, 191);
+  border-bottom: 2px solid rgb(192, 191, 191);
 }
 
 .header select {
@@ -154,6 +166,9 @@ export default {
 .status {
   display: flex;
   align-items: center;
+  border-left: 2px solid rgb(192, 191, 191);
+  padding-left: 10px;
+  height: 60px;
 }
 
 .status-dot {
@@ -178,20 +193,29 @@ export default {
   box-sizing: border-box;
   border: none;
   outline: none;
+  border-bottom: 2px solid rgb(192, 191, 191);
 }
 
 .right {
   flex: 3;
-  padding: 20px;
+  padding: 30px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .btn {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
+  gap: 10px;
 }
-
-.btn .update {
+.btn-double {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+.btn-double .update {
   border: none;
   background-color: #2450ff;
   color: white;
@@ -200,7 +224,7 @@ export default {
   cursor: pointer;
 }
 
-.btn .cancel {
+.btn-double .cancel {
   border: 1px solid red;
   background-color: transparent;
   color: red;
@@ -213,6 +237,8 @@ export default {
   display: flex;
   flex-direction: column;
   margin-bottom: 15px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #2450ff;
 }
 
 .form-group input[type="file"]::file-selector-button {
@@ -238,7 +264,8 @@ export default {
 
 .form-group .label {
   max-width: 100%;
-  height: 75px;
+  height: 65px;
+  border: 1px solid #2450ff;
 }
 
 label {
@@ -265,12 +292,108 @@ span {
 
 .btn-delete {
   border: none;
-  background-color: red;
+  background-color: #d00000;
   color: white;
   border-radius: 50px;
   padding: 10px 25px;
   margin: auto;
   cursor: pointer;
   width: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    padding: 0px 20px;
+  }
+
+  .header h3 {
+    font-size: 15px;
+  }
+
+  .input-title input::placeholder {
+    font-size: 17px;
+  }
+
+  .card {
+    width: 100%;
+    margin: 15px 0;
+  }
+
+  .left {
+    order: 1;
+  }
+
+  .right {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .btn-double {
+    order: 1;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #2450ff;
+  }
+
+  .btn {
+    order: 2;
+  }
+
+  .btn-delete {
+    order: 1;
+  }
+
+  .btn-double .update {
+    width: 100%;
+  }
+
+  .btn-double .cancel {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 0px 20px;
+  }
+
+  .header h3 {
+    font-size: 15px;
+  }
+
+  .input-title input::placeholder {
+    font-size: 17px;
+  }
+
+  .card {
+    width: 100%;
+    margin: 15px 0;
+  }
+
+  .left {
+    order: 1;
+  }
+
+  .right {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .btn-double {
+    order: 1;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #2450ff;
+  }
+
+  .btn {
+    order: 2;
+  }
+
+  .btn-delete {
+    order: 1;
+  }
 }
 </style>

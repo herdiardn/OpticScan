@@ -28,7 +28,7 @@ export default {
 @media (max-width: 768px) {
   .HeroAboutUs-section {
     padding: 0px 0px 0px 55px;
-    height: 30vh;
+    height: 25vh;
   }
 
   p {

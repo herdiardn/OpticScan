@@ -2,11 +2,7 @@
   <div class="left-section">
     <router-link to="/">
       <img
-        :src="
-          isSignIn
-            ? require('@/assets/logo.png')
-            : require('@/assets/close2.png')
-        "
+        src="@/assets/logo.png"
         alt="Logo"
         class="logo"
         :style="
@@ -15,7 +11,7 @@
             : {
                 right: '20px',
                 position: 'absolute',
-                width: '20px',
+                width: '70px',
                 color: 'white',
               }
         "

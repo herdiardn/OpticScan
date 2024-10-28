@@ -1,24 +1,24 @@
 <template>
   <div>
-    <HeaderDashboard />
+    <HeaderDashboardDoctor />
     <HeroProfile />
-    <ProfileContent />
+    <ProfileContentDoctor />
     <FooterSite />
   </div>
 </template>
 
 <script>
-import HeaderDashboard from "@/components/HeaderDashboard.vue";
+import HeaderDashboardDoctor from "@/components/HeaderDashboardDoctor.vue";
 import HeroProfile from "@/components/HeroProfile.vue";
-import ProfileContent from "@/components/ProfileContent.vue";
+import ProfileContentDoctor from "@/components/ProfileContentDoctor.vue";
 import FooterSite from "@/components/FooterSite.vue";
 
 export default {
   name: "ArticlePageView",
   components: {
-    HeaderDashboard,
+    HeaderDashboardDoctor,
     HeroProfile,
-    ProfileContent,
+    ProfileContentDoctor,
     FooterSite,
   },
 };

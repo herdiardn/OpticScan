@@ -40,9 +40,15 @@
       <div class="FooterSite-bottom">
         <p>&copy; 2024 OpticScan. All rights reserved.</p>
         <div class="social-icons">
-          <a href="#"><i class="icon-instagram"></i></a>
-          <a href="#"><i class="icon-twitter"></i></a>
-          <a href="#"><i class="icon-youtube"></i></a>
+          <a href="https://www.instagram.com/humicengineering/"
+            ><i class="fa-brands fa-instagram" style="color: #ffffff"></i
+          ></a>
+          <a href="https://humic.telkomuniversity.ac.id/"
+            ><i class="fa-solid fa-globe" style="color: #ffffff"></i
+          ></a>
+          <a href="https://www.youtube.com/@humicengineeringresearchce1841"
+            ><i class="fa-brands fa-youtube" style="color: #ffffff"></i
+          ></a>
         </div>
       </div>
     </div>
@@ -113,6 +119,7 @@ export default {
 .important-links a {
   color: #fff;
   text-decoration: none;
+  font-size: 13px;
 }
 
 .FooterSite-bottom {
@@ -132,11 +139,58 @@ export default {
 
 .social-icons i {
   font-size: 1.5rem;
-  color: #fff;
+}
+
+.social-icons a {
+  background-color: #2450ff;
+  padding: 10px 12px;
+  border-radius: 20px;
 }
 
 p {
   font-family: "Poppins";
   font-size: 13px;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    padding: 0 20px;
+  }
+
+  .FooterSite-section {
+    margin: 1rem 0;
+    padding-right: 0;
+    max-width: 100%;
+  }
+
+  .FooterSite-logo {
+    width: 80px;
+  }
+
+  .social-icons a {
+    padding: 5px 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 0 20px;
+  }
+
+  .FooterSite-section {
+    margin: 1rem 0;
+    padding-right: 0;
+    max-width: 100%;
+  }
+
+  .FooterSite-logo {
+    width: 80px;
+  }
+
+  .social-icons a {
+    padding: 5px 8px;
+  }
 }
 </style>

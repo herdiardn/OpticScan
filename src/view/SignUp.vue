@@ -37,6 +37,28 @@ export default {
   overflow: hidden;
 }
 
+@media (max-width: 1024px) {
+  .signup-container {
+    background-image: url("@/assets/login.png");
+    height: 100vh;
+  }
+
+  .card {
+    flex-direction: column-reverse;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border-radius: 0;
+    overflow-y: auto;
+  }
+
+  .signup-section {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: rgb(255, 255, 255, 0.8);
+  }
+}
+
 @media (max-width: 768px) {
   .signup-container {
     background-image: url("@/assets/login.png");
@@ -53,8 +75,8 @@ export default {
   }
 
   .signup-section {
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
     background-color: rgb(255, 255, 255, 0.8);
   }
 }

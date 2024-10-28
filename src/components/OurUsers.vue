@@ -90,6 +90,12 @@ p {
   font-size: 0.9rem;
 }
 
+@media (max-width: 1024px) {
+  .card {
+    width: 300px;
+  }
+}
+
 @media (max-width: 768px) {
   .container {
     flex-direction: column;

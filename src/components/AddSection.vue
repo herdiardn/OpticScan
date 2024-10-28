@@ -41,9 +41,9 @@ export default {
 
   h2 {
     text-align: center;
-    width: 60%;
+    width: 70%;
     margin: auto;
-    font-size: 23px;
+    font-size: 20px;
   }
 }
 </style>

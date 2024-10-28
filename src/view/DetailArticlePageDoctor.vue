@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="btn-back">
-      <router-link to="/morearticle"
+      <router-link to="/morearticledoctor"
         ><i class="fa-solid fa-chevron-left"></i
       ></router-link>
     </div>
@@ -89,6 +89,9 @@
         <router-link to="/morearticle"
           ><button class="back-button">Back</button></router-link
         >
+        <router-link to="/AddArticle"
+          ><button class="edit-button">Edit</button></router-link
+        >
       </div>
     </div>
   </section>
@@ -98,6 +101,7 @@
 <script>
 import FooterSite from "@/components/FooterSite.vue";
 import HeaderDashboard from "@/components/HeaderDashboard.vue";
+
 export default {
   name: "DetailArticlePage",
   components: {
@@ -178,7 +182,7 @@ export default {
   left: 50px;
   top: 480px;
   font-size: 35px;
-  z-index: 100;
+  z-index: 1000;
 }
 
 .btn-back a {
@@ -252,6 +256,20 @@ export default {
 
 .back-button:hover {
   background-color: #1a3cb3;
+}
+
+.edit-button {
+  background-color: white;
+  color: #2450ff;
+  padding: 10px 40px;
+  border: 1px solid #2450ff;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.edit-button:hover {
+  background-color: #2450ff;
+  color: white;
 }
 
 @media (max-width: 1024px) {

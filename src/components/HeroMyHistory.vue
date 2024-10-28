@@ -23,4 +23,13 @@ export default {
   font-size: 50px;
   font-weight: normal;
 }
+
+@media screen and (max-width: 768px) {
+  .HeroMyHistory-section {
+    height: 25vh;
+    background-position: center;
+    padding: 0px 0px 0px 25px;
+    font-size: 40px;
+  }
+}
 </style>

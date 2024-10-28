@@ -1,11 +1,20 @@
 <template>
   <header class="navbar">
     <div class="container">
+      <div class="logo">
+        <img src="@/assets/logo.png" alt="Logo" class="logo" />
+      </div>
       <nav :class="{ 'menu-open': menuOpen }">
-        <div class="logo">
-          <img src="@/assets/logo.png" alt="Logo" class="logo" />
-        </div>
         <div class="menu">
+          <div class="profileNav">
+            <div class="imgNav">
+              <img src="@/assets/profileNav.png" />
+            </div>
+            <div class="text">
+              <p><strong>Herdi Ardana</strong></p>
+              <p>Patient</p>
+            </div>
+          </div>
           <ul>
             <li>
               <router-link
@@ -20,7 +29,7 @@
                 to="/myhistory"
                 active-class="active"
                 exact-active-class="active"
-                >Histories</router-link
+                >History</router-link
               >
             </li>
             <li>
@@ -40,15 +49,15 @@
           <div v-if="dropdownVisible" class="dropdown">
             <ul>
               <li>
-                <i class="fa-solid fa-user" style="color: white"></i>
+                <i class="fa-regular fa-user" style="color: #ffffff"></i>
                 <router-link class="dropdown-content" to="/profile">
                   <span>Profile</span>
                 </router-link>
               </li>
               <li>
                 <i
-                  class="fa-solid fa-right-from-bracket fa-rotate-180"
-                  style="color: white"
+                  class="fa-solid fa-arrow-right-from-bracket fa-rotate-180"
+                  style="color: #ffffff"
                 ></i>
                 <router-link class="dropdown-content" to="/">
                   <span>Sign Out</span>
@@ -67,15 +76,20 @@
 
     <div v-if="menuOpen" class="hamburger-menu">
       <ul>
-        <li>
-          <router-link to="/profile">
-            <button class="profil">Profile</button></router-link
-          >
+        <li class="profil">
+          <i class="fa-regular fa-user" style="color: #1d40cc"></i>
+          <router-link class="dropdown-content" to="/profile">
+            <span>Profile</span>
+          </router-link>
         </li>
-        <li>
-          <router-link to="/"
-            ><button class="signout">Sign Out</button></router-link
-          >
+        <li class="signout">
+          <i
+            class="fa-solid fa-arrow-right-from-bracket fa-rotate-180"
+            style="color: #ffffff"
+          ></i>
+          <router-link class="dropdown-content" to="/">
+            <span style="color: white">Sign Out</span>
+          </router-link>
         </li>
       </ul>
     </div>
@@ -98,6 +112,25 @@ export default {
     toggleMenu() {
       this.menuOpen = !this.menuOpen;
     },
+    closeMenu(event) {
+      const menu = this.$el.querySelector("nav");
+      if (
+        menu &&
+        !menu.contains(event.target) &&
+        !event.target.closest(".hamburger") &&
+        this.menuOpen
+      ) {
+        this.menuOpen = false;
+      }
+    },
+  },
+
+  mounted() {
+    document.addEventListener("click", this.closeMenu);
+  },
+
+  beforeUnmount() {
+    document.removeEventListener("click", this.closeMenu);
   },
 };
 </script>
@@ -118,7 +151,14 @@ export default {
   align-items: center;
 }
 
+.profileNav {
+  display: none;
+}
+
 .logo {
+  position: absolute;
+  left: 10px;
+  top: 10px;
   width: 100px;
 }
 
@@ -248,34 +288,39 @@ nav ul li a.active::after {
   right: 0;
 }
 
-/* Hamburger menu styles */
 .hamburger-menu {
   display: none;
   position: absolute;
-  top: 400px;
-  left: 130px;
+  top: 575px;
+  left: 100px;
   z-index: 200;
 }
-.hamburger-menu button {
-  padding: 10px 130px;
+.hamburger-menu li {
+  padding: 10px;
   border: none;
   border-radius: 10px;
-  width: 100%;
+  width: 210px;
   cursor: pointer;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
-.hamburger-menu button:hover {
+.hamburger-menu li:hover {
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.hamburger-menu li span {
+  margin-left: 15px;
 }
 
 .hamburger-menu .profil {
   background-color: white;
-  color: #1d40cc;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+  margin-left: 10px;
 }
 
 .hamburger-menu .signout {
   background-color: #1d40cc;
-  color: white;
+  margin-left: 10px;
 }
 .hamburger-menu ul {
   list-style: none;
@@ -294,8 +339,32 @@ nav ul li a.active::after {
   text-decoration: none;
 }
 
-/* Show hamburger menu on mobile */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
+  .profileNav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    margin-top: -340px;
+  }
+  .profileNav img {
+    margin-left: 250px;
+    width: 80px;
+  }
+  .profileNav .imgNav {
+    margin-right: 0px;
+    margin-top: -120px;
+    width: 80px;
+  }
+
+  .profileNav .text {
+    margin-left: 175px;
+    margin-top: 20px;
+    margin-right: 0px;
+    font-size: 12px;
+  }
+
   nav {
     position: absolute;
     top: 0px;
@@ -309,10 +378,6 @@ nav ul li a.active::after {
     align-items: flex-start;
   }
 
-  .logo {
-    display: none;
-  }
-
   nav.menu-open {
     display: flex;
   }
@@ -321,11 +386,11 @@ nav ul li a.active::after {
     padding-top: 180px;
     flex-direction: column;
     gap: 20px;
-    margin-left: -10px;
+    margin-left: -340px;
   }
 
   nav ul li {
-    width: 230%;
+    width: 470%;
   }
 
   nav ul li a {
@@ -350,6 +415,114 @@ nav ul li a.active::after {
 
   .hamburger-menu {
     display: flex;
+  }
+  .hamburger-menu .profil {
+    background-color: white;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+    margin-bottom: 15px;
+    margin-left: 170px;
+    margin-top: -130px;
+    width: 180%;
+  }
+
+  .hamburger-menu .signout {
+    background-color: #1d40cc;
+    margin-left: 170px;
+    width: 180%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .profileNav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    margin-top: -340px;
+  }
+  .profileNav img {
+    margin-left: 0px;
+    width: 80px;
+  }
+  .profileNav .imgNav {
+    margin-right: -80px;
+    margin-top: -330px;
+    width: 80px;
+  }
+
+  .profileNav .text {
+    margin-left: 0px;
+    margin-top: -190px;
+    margin-right: -225px;
+    font-size: 12px;
+  }
+
+  nav {
+    position: absolute;
+    top: 0px;
+    right: 0;
+    background-image: url("@/assets/sidebar-2.png");
+    padding: 10px;
+    height: 100vh;
+    width: 70%;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav.menu-open {
+    display: flex;
+  }
+
+  nav ul {
+    padding-top: 180px;
+    flex-direction: column;
+    gap: 20px;
+    margin-left: -10px;
+  }
+
+  nav ul li {
+    width: 170%;
+  }
+
+  nav ul li a {
+    color: black;
+    border-radius: 10px;
+    padding: 10px 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: block;
+  }
+
+  nav ul li a:hover {
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .profile {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .hamburger-menu {
+    display: flex;
+  }
+
+  .hamburger-menu .profil {
+    background-color: white;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+    margin-bottom: 15px;
+    margin-left: 10px;
+    margin-top: 0px;
+    width: 150%;
+  }
+
+  .hamburger-menu .signout {
+    background-color: #1d40cc;
+    margin-left: 10px;
+    width: 150%;
   }
 }
 </style>

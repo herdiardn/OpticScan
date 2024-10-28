@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HeaderDashboard :isActive="'myhistory'" />
+    <HeaderDashboard />
     <HeroMyHistory />
     <MyHistoryDashboard />
     <FooterUser />

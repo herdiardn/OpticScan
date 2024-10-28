@@ -16,7 +16,9 @@ import MyHistoryPage from "@/view/MyHistoryPage.vue";
 import ArticlesPageView from "@/view/ArticlesPageView.vue";
 import ArticlesPageViewDoctor from "@/view/ArticlesPageViewDoctor.vue";
 import DetailArticlePage from "@/view/DetailArticlePage.vue";
+import DetailArticlePageDoctor from "@/view/DetailArticlePageDoctor.vue";
 import ProfilePage from "@/view/ProfilePage.vue";
+import ProfilePageDoctor from "@/view/ProfilePageDoctor.vue";
 import PatientDetailTestCompleted from "@/view/PatientDetailTestCompleted.vue";
 import PatientDetailBeingProcessed from "@/view/PatientDetailBeingProcessed.vue";
 import PatientsPage from "@/view/PatientsPage.vue";
@@ -116,9 +118,19 @@ const routes = [
     component: DetailArticlePage,
   },
   {
+    path: "/detailarticledoctor",
+    name: "DetailArticlePageDoctor",
+    component: DetailArticlePageDoctor,
+  },
+  {
     path: "/profile",
     name: "ProfilePage",
     component: ProfilePage,
+  },
+  {
+    path: "/profiledoctor",
+    name: "ProfilePageDoctor",
+    component: ProfilePageDoctor,
   },
   {
     path: "/patients",

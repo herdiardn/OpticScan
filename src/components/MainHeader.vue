@@ -1,10 +1,10 @@
 <template>
   <header class="navbar">
     <div class="container">
+      <div class="logo">
+        <img src="@/assets/logo.png" alt="Logo" class="logo-img" />
+      </div>
       <nav :class="{ 'menu-open': menuOpen }">
-        <div class="logo">
-          <img src="@/assets/logo.png" alt="Logo" class="logo" />
-        </div>
         <div class="menu">
           <ul>
             <li>
@@ -92,12 +92,30 @@ export default {
     toggleMenu() {
       this.menuOpen = !this.menuOpen;
     },
+    closeMenu(event) {
+      const menu = this.$el.querySelector("nav");
+      if (
+        menu &&
+        !menu.contains(event.target) &&
+        !event.target.closest(".hamburger") &&
+        this.menuOpen
+      ) {
+        this.menuOpen = false;
+      }
+    },
+  },
+
+  mounted() {
+    document.addEventListener("click", this.closeMenu);
+  },
+
+  beforeUnmount() {
+    document.removeEventListener("click", this.closeMenu);
   },
 };
 </script>
 
 <style scoped>
-/* Base navbar styles */
 .navbar {
   position: fixed;
   top: 0;
@@ -114,8 +132,15 @@ export default {
 }
 
 .logo {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+}
+
+.logo-img {
   width: 100px;
 }
+
 nav {
   display: flex;
   align-items: center;
@@ -132,6 +157,7 @@ nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
+  margin-left: 130px;
 }
 
 nav ul li {
@@ -188,7 +214,6 @@ nav ul li a.active::after {
   box-shadow: 0 1px 15px rgba(255, 255, 255, 0.3);
 }
 
-/* Hamburger icon */
 .hamburger {
   display: none;
   cursor: pointer;
@@ -197,7 +222,7 @@ nav ul li a.active::after {
   width: 25px;
   height: 20px;
   margin-left: auto;
-  padding-right: 45px;
+  padding-right: 50px;
 }
 
 .hamburger span {
@@ -205,14 +230,12 @@ nav ul li a.active::after {
   width: 100%;
   height: 2px;
   background-color: white;
-  right: 0;
 }
 
-/* Responsive styles */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   nav {
     position: absolute;
-    top: 0px;
+    top: 0;
     right: 0;
     background-image: url("@/assets/sidebar.png");
     padding: 10px;
@@ -221,9 +244,6 @@ nav ul li a.active::after {
     display: none;
     flex-direction: column;
     align-items: flex-start;
-  }
-  .logo {
-    display: none;
   }
 
   nav.menu-open {
@@ -236,9 +256,11 @@ nav ul li a.active::after {
     gap: 20px;
     margin-left: -20px;
   }
+
   nav ul li {
-    width: 230%; /* Agar li mengisi seluruh lebar */
+    width: 360%;
   }
+
   nav ul li a {
     color: black;
     border-radius: 10px;
@@ -246,6 +268,7 @@ nav ul li a.active::after {
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     display: block;
   }
+
   nav ul li a:hover {
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
   }
@@ -253,18 +276,86 @@ nav ul li a.active::after {
   .hamburger {
     display: flex;
   }
+
   .auth-buttons {
     display: flex;
     flex-direction: column;
     gap: 10px;
     align-items: stretch;
     width: 100%;
-    padding-bottom: 40px;
+    padding-bottom: 30px;
   }
 
   .btn-signin,
   .btn-signup {
+    width: 88%;
+    border-radius: 5px;
+  }
+
+  .btn-signin {
+    background-color: transparent;
+    border: 1px solid #2450ff;
+    color: #2450ff;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-image: url("@/assets/sidebar.png");
+    padding: 10px;
+    height: 100vh;
+    width: 70%;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav.menu-open {
+    display: flex;
+  }
+
+  nav ul {
+    padding-top: 30px;
+    flex-direction: column;
+    gap: 20px;
+    margin-left: -20px;
+  }
+
+  nav ul li {
+    width: 150%;
+  }
+
+  nav ul li a {
+    color: black;
+    border-radius: 10px;
+    padding: 10px 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: block;
+  }
+
+  nav ul li a:hover {
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .auth-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
     width: 100%;
+    padding-bottom: 90px;
+  }
+
+  .btn-signin,
+  .btn-signup {
+    width: 78%;
     border-radius: 5px;
   }
 

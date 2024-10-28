@@ -1,5 +1,5 @@
 <template>
-  <section id="ProfileContent" class="ProfileContent-section">
+  <section id="ProfileContentDoctor" class="ProfileContentDoctor-section">
     <div class="container">
       <div class="btn-back">
         <router-link to="/dashboard"
@@ -21,7 +21,7 @@
           </div>
 
           <h4>Herdi Ardana</h4>
-          <p>Pasien</p>
+          <p>Doctor</p>
         </div>
       </div>
       <div class="card info-card">

@@ -1,12 +1,12 @@
 <template>
   <section id="service" class="service-section">
-    <h2>Our Services</h2>
+    <h2>Our Service</h2>
     <div class="container">
       <div class="image-content">
         <img src="@/assets/service.png" alt="" />
       </div>
       <div class="text-content">
-        <h1>Early Detection for Eye Disease (OpticScan)</h1>
+        <h1>Intelligent Diagnosis with AI</h1>
         <p>
           OpticScan offers an advanced service that utilizes artificial
           intelligence (AI) and Internet of Things (IoT) technology to
@@ -44,7 +44,7 @@ export default {
 }
 
 .service-section h2 {
-  padding: 0 0 30px 75px;
+  padding: 0 0 20px 80px;
   margin: 0;
 }
 
@@ -78,8 +78,76 @@ p {
 }
 
 img {
-  width: 400px;
+  width: 450px;
   height: auto;
+  border-radius: 0px 0px 1000px 0px;
+}
+
+@media screen and (max-width: 1024px) {
+  .service-section {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 125vh;
+  }
+
+  .service-section h2 {
+    margin-top: -10px;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 25px;
+    box-sizing: border-box;
+  }
+
+  .image-content {
+    padding-left: 0px;
+  }
+
+  img {
+    width: 250px;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 0px;
+  }
+
+  .text-content {
+    padding: 0;
+    margin-top: 20px;
+    width: 100%;
+    order: 2;
+    text-align: center;
+  }
+
+  h1 {
+    margin: auto;
+    font-size: 2em;
+    width: 35%;
+  }
+
+  p {
+    margin: auto;
+    width: 70%;
+    font-size: 15px;
+    line-height: 1.4;
+    padding: 0px;
+    margin-top: 20px;
+  }
+
+  .btn-about {
+    margin-bottom: 10px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -91,10 +159,11 @@ img {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: auto; /* Pastikan tinggi otomatis agar mengikuti konten */
+    height: 95vh;
   }
 
   .service-section h2 {
+    margin-top: -50px;
     padding: 0;
     margin-bottom: 20px;
   }
@@ -113,6 +182,7 @@ img {
     width: 170px;
     height: auto;
     margin-bottom: 10px;
+    border-radius: 0px;
   }
 
   .text-content {
@@ -124,15 +194,17 @@ img {
   }
 
   h1 {
-    font-size: 1.5em;
+    font-size: 1em;
     width: 100%;
-    margin-bottom: -15px;
+    padding-bottom: 20px;
   }
 
   p {
-    width: 100%;
+    margin: auto;
+    width: 70%;
     font-size: 12px;
     line-height: 1.4;
+    padding: 0px;
   }
 
   .btn-about {

@@ -114,6 +114,8 @@ export default {
   position: relative;
   padding: 0px 20px;
   color: blue;
+  border-bottom: 1px solid #2450ff;
+  margin-bottom: 15px;
 }
 h2 {
   font-weight: normal;
@@ -123,7 +125,7 @@ h2 {
   margin: 0 auto;
   border-radius: 10px;
   width: 90%;
-  height: 80%;
+  height: 90%;
   overflow: hidden;
   margin-top: auto;
   margin-bottom: auto;
@@ -135,9 +137,12 @@ h2 {
 }
 .content {
   display: flex;
-  justify-content: flex-start; /* Mengatur elemen-elemen ke arah kiri */
-  align-items: flex-start; /* Agar semua elemen dimulai dari atas */
+  justify-content: flex-start;
+  align-items: flex-start;
   gap: 20px;
+  border-bottom: 1px solid #2450ff;
+  padding: 15px 0px;
+  margin-bottom: 5px;
 }
 .card .image-card {
   width: 400px;
@@ -203,5 +208,129 @@ form {
 
 .btn-back button:hover {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Media query for mobile view */
+@media (max-width: 1024px) {
+  .container {
+    height: max-content;
+  }
+
+  .card {
+    height: max-content;
+    overflow: hidden;
+    margin: 50px 0px;
+  }
+
+  .header img {
+    width: 70px;
+    height: 30px;
+  }
+
+  .content {
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+  }
+  .card .image-card {
+    width: 70%;
+    height: 400px;
+    margin-left: 0;
+    margin-bottom: 20px;
+    padding: 10px;
+  }
+
+  .card .image-card img {
+    width: 100%;
+    height: 100%;
+  }
+  .data {
+    width: 100%;
+    margin-left: 30px;
+  }
+  form {
+    margin-left: 0px;
+  }
+
+  .form-group input {
+    margin-left: -120px;
+    width: 77%;
+  }
+  .btn-back {
+    padding-bottom: 20px;
+    text-align: center;
+  }
+
+  .btn-back button {
+    padding: 10px 30px;
+    margin: 10px;
+    width: 90px;
+  }
+}
+
+/* Media query for mobile view */
+@media (max-width: 768px) {
+  .container {
+    height: max-content;
+  }
+
+  .card {
+    height: max-content;
+    overflow: hidden;
+    margin: 50px 0px;
+  }
+
+  .header h2 {
+    margin-left: -30px;
+  }
+
+  .header img {
+    width: 70px;
+    height: 30px;
+  }
+
+  .content {
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+  }
+  .card .image-card {
+    width: 70%;
+    height: 200px;
+    margin-left: 0;
+    margin-bottom: 20px;
+    padding: 10px;
+  }
+
+  .card .image-card img {
+    width: 100%;
+    height: 100%;
+  }
+  .data {
+    width: 100%;
+    margin-left: 30px;
+  }
+  form {
+    margin-left: 0px;
+  }
+
+  .form-group label {
+    width: 10%;
+    margin-left: 10px;
+  }
+  .form-group input {
+    margin-left: 50px;
+    width: 55%;
+  }
+  .btn-back {
+    padding-bottom: 20px;
+    text-align: center;
+  }
+
+  .btn-back button {
+    padding: 10px 30px;
+    margin: 10px;
+    width: 90px;
+  }
 }
 </style>

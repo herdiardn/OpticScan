@@ -11,9 +11,12 @@
           ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua.
         </p>
+        <router-link :to="isDoctor ? '/detailarticledoctor' : '/detailarticle'">
+          <button class="btn-signin">Read full article</button>
+        </router-link>
       </div>
     </div>
-    <div class="btn-signin">
+    <div class="btn-more">
       <router-link :to="isDoctor ? '/morearticledoctor' : '/morearticle'">
         <button><strong>more</strong></button>
       </router-link>
@@ -57,14 +60,14 @@ export default {
   grid-template-columns: repeat(4, 1fr);
   gap: 50px;
   justify-items: center;
-  box-sizing: border-box; /* Pastikan padding tidak menambah lebar */
+  box-sizing: border-box;
 }
 h3 {
   margin-top: 0px;
 }
 
 p {
-  margin-top: -18px;
+  margin-top: -25px;
   font-size: 12px;
 }
 
@@ -73,8 +76,8 @@ p {
   border-radius: 10px;
   padding-bottom: 25px;
   text-align: center;
-  width: 210px;
-  height: 300px;
+  width: 240px;
+  height: 320px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s;
   color: black;
@@ -99,11 +102,26 @@ p {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-.btn-signin button {
+.container button {
+  padding: 10px 15px;
+  border: none;
+  background-color: #2450ff;
+  color: #fff;
+  border-radius: 20px;
+  cursor: pointer;
+  margin: 0px 0px 20px 10px;
+  font-size: 10px;
+}
+
+.container button:hover {
+  background-color: #1a3cb3;
+}
+
+.btn-more button {
   width: 100%;
   padding: 10px 30px;
   margin-top: 20px;
-  background-color: #003adb;
+  background-color: #2450ff;
   color: white;
   border: none;
   border-radius: 50px;
@@ -113,14 +131,47 @@ p {
   transition: box-shadow 0.3s ease;
 }
 
-.btn-signin button:hover {
+.btn-more button:hover {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 1024px) {
+  .article-section {
+    height: 160vh;
+    padding-top: 40px;
+    background-position: center;
+  }
+
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  h2 {
+    margin-bottom: 20px;
+  }
+  .card {
+    width: 250px;
+    height: 330px;
+    margin: 5px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 13px;
+  }
+  .btn-more button {
+    margin-top: 40px;
+  }
 }
 
 @media screen and (max-width: 768px) {
   .article-section {
-    height: 110vh;
+    height: 90vh;
     padding-top: 40px;
+    background-position: center;
   }
 
   .container {
@@ -131,9 +182,9 @@ p {
     margin-bottom: 5px;
   }
   .card {
-    width: 170px;
-    height: 225px;
-    margin: 5px 10px;
+    width: 140px;
+    height: 270px;
+    margin: 5px;
   }
 
   h3 {
@@ -143,10 +194,10 @@ p {
 
   p {
     margin-top: -30px;
-    font-size: 10px;
+    font-size: 8.5px;
   }
-  .btn-signin button {
-    margin-top: 25px;
+  .btn-more button {
+    margin-top: 20px;
   }
 }
 </style>

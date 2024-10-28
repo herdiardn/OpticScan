@@ -22,7 +22,7 @@
         <img src="@/assets/4.png" alt="" />
         <p>The result of the AI diagnosis are uploaded to the patient's data</p>
       </div>
-      <div class="content">
+      <div class="content-five">
         <img src="@/assets/5.png" alt="" />
         <p>The patient received the diagnosis results</p>
       </div>
@@ -61,7 +61,6 @@ export default {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, auto);
-  max-width: 1200px;
   margin: 0 auto;
   justify-items: center;
   align-items: start;
@@ -75,12 +74,13 @@ export default {
   justify-self: center;
 }
 
-.container .content:nth-child(5) {
+.container .content-five:nth-child(5) {
   margin-top: -70px;
   grid-column: 2 / span 3;
   grid-row: 2;
   justify-self: center;
   padding-left: 90px;
+  padding-top: 30px;
 }
 .content-mid {
   padding: 0px 140px 0px 140px;
@@ -89,67 +89,156 @@ p {
   text-align: center;
   width: 200px;
 }
+
+.content-five img {
+  width: 100px;
+  height: auto;
+}
 img {
   width: 150px;
   height: auto;
 }
-@media (max-width: 768px) {
+
+@media screen and (max-width: 1024px) {
+  .howitworks-section {
+    height: 200vh;
+  }
+
   .container {
-    grid-template-columns: repeat(2, 1fr); /* 2 konten per baris */
-    grid-template-rows: auto; /* Otomatis mengikuti konten */
-    gap: 20px; /* Jarak antar item */
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 40px;
   }
   .howitworks-section h2 {
     padding-bottom: 20px;
     text-align: center;
-    margin-top: -10px;
+    margin-top: 50px;
   }
   .content {
-    padding: 10px 30px 10px 50px; /* Padding untuk konten di ponsel */
+    padding: 10px 10px 10px 10px;
   }
 
   .content img {
-    width: 80px; /* Ukuran gambar lebih kecil di ponsel */
+    width: 200px;
+  }
+
+  .content-five img {
+    width: 180px;
+    height: auto;
   }
 
   p {
-    width: 120px; /* Lebar teks di ponsel */
-    font-size: 12px; /* Ukuran font lebih kecil */
-    margin: 5px 0 0 -10px; /* Margin untuk memberi jarak dari gambar */
+    width: 120px;
+    font-size: 12px;
+    margin: 5px 0 0 40px;
   }
 
-  /* Atur ulang posisi konten */
   .container .content:nth-child(1) {
-    grid-column: 1; /* Kolom 1 */
-    grid-row: 1; /* Baris 1 */
+    grid-column: 1;
+    grid-row: 1;
+    padding-bottom: 70px;
+    padding-right: 30px;
   }
 
   .container .content:nth-child(2) {
-    grid-column: 2; /* Kolom 2 */
-    grid-row: 1; /* Baris 1 */
+    grid-column: 2;
+    grid-row: 1;
+    padding-bottom: 70px;
   }
   .content-mid {
     padding: 0px;
   }
 
   .content-mid img {
-    width: 100px;
+    width: 200px;
   }
   .container .content:nth-child(3) {
-    grid-column: 1; /* Kolom 1 */
-    grid-row: 2; /* Baris 2 */
+    grid-column: 1;
+    grid-row: 2;
   }
 
   .container .content:nth-child(4) {
-    grid-column: 2; /* Kolom 2 */
-    grid-row: 2; /* Baris 2 */
+    grid-column: 2;
+    grid-row: 2;
     margin-top: 0px;
   }
 
-  .container .content:nth-child(5) {
-    grid-column: 1 / span 2; /* Konten terakhir memenuhi lebar 2 kolom */
-    grid-row: 3; /* Baris 3 */
+  .container .content-five:nth-child(5) {
+    grid-column: 1 / span 2;
+    grid-row: 3;
+    margin-top: 0px;
+    margin-left: -30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .howitworks-section {
+    height: 90vh;
+  }
+
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 20px;
+  }
+  .howitworks-section h2 {
+    padding-bottom: 40px;
+    text-align: center;
     margin-top: -50px;
+  }
+  .content {
+    padding: 10px 10px 10px 10px;
+  }
+
+  .content img {
+    width: 60px;
+  }
+
+  p {
+    width: 120px;
+    font-size: 12px;
+    margin: 5px 0 0 -15px;
+  }
+
+  .container .content:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+    padding-bottom: 70px;
+  }
+
+  .container .content:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+    padding-bottom: 70px;
+  }
+  .content-mid {
+    padding: 0px;
+  }
+
+  .content-mid img {
+    width: 80px;
+  }
+
+  .content-five img {
+    width: 60px;
+  }
+
+  .container .content:nth-child(3) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .container .content:nth-child(4) {
+    grid-column: 2;
+    grid-row: 2;
+    margin-top: 0px;
+  }
+
+  .container .content-five:nth-child(5) {
+    grid-column: 1 / span 2;
+    grid-row: 3;
+    margin-top: 0px;
+    margin-left: -30px;
   }
 }
 </style>

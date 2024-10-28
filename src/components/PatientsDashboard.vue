@@ -1,6 +1,11 @@
 <template>
   <section id="PatientsDashboard" class="PatientsDashboard-section">
     <div class="container">
+      <div class="btn-back">
+        <router-link to="/dashboardDoctor"
+          ><i class="fa-solid fa-chevron-left" style="color: #2450ff"></i
+        ></router-link>
+      </div>
       <!-- Status Cards -->
       <div class="status-cards">
         <div class="card completed">
@@ -36,23 +41,23 @@
       <table class="data-table">
         <thead>
           <tr>
-            <th>No.</th>
-            <th>ID Pasien</th>
+            <th v-if="!isMobile && !isTab">No.</th>
+            <th v-if="!isMobile && !isTab">ID Pasien</th>
             <th>Name</th>
-            <th>Diagnosis</th>
+            <th v-if="!isMobile && !isTab">Diagnosis</th>
             <th>Registration Date</th>
-            <th>Status</th>
+            <th v-if="!isMobile">Status</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="(item, index) in filteredData" :key="index">
-            <td>{{ index + 1 }}</td>
-            <td>{{ index + 1 }}</td>
+            <td v-if="!isMobile && !isTab">{{ index + 1 }}</td>
+            <td v-if="!isMobile && !isTab">{{ index + 1 }}</td>
             <td>{{ item.name }}</td>
-            <td>{{ item.diagnosis }}</td>
+            <td v-if="!isMobile && !isTab">{{ item.diagnosis }}</td>
             <td>{{ item.registrationDate }}</td>
-            <td>
+            <td v-if="!isMobile">
               <span :class="item.statusClass">{{ item.status }}</span>
             </td>
             <td>
@@ -91,18 +96,27 @@ export default {
       processingCount: 2,
       currentPage: 1,
       itemsPerPage: 10,
+      isMobile: window.innerWidth <= 768,
+      isTab: window.innerWidth <= 1024,
       data: [
         {
           name: "Herdi Andana",
           diagnosis: "Diabetic retinopathy",
           registrationDate: "2024-07-17",
-          status: "Test completed",
-          statusClass: "test-completed",
+          status: "Being processed",
+          statusClass: "being-processed",
         },
         {
           name: "Herdi Andana",
           diagnosis: "Diabetic retinopathy",
           registrationDate: "2024-07-23",
+          status: "Being processed",
+          statusClass: "being-processed",
+        },
+        {
+          name: "Herdi Andana",
+          diagnosis: "Cataract",
+          registrationDate: "2024-07-18",
           status: "Test completed",
           statusClass: "test-completed",
         },
@@ -117,50 +131,43 @@ export default {
           name: "Herdi Andana",
           diagnosis: "Cataract",
           registrationDate: "2024-07-18",
-          status: "Being processed",
-          statusClass: "being-processed",
+          status: "Test completed",
+          statusClass: "test-completed",
         },
         {
           name: "Herdi Andana",
           diagnosis: "Cataract",
           registrationDate: "2024-07-18",
-          status: "Being processed",
-          statusClass: "being-processed",
+          status: "Test completed",
+          statusClass: "test-completed",
         },
         {
           name: "Herdi Andana",
           diagnosis: "Cataract",
           registrationDate: "2024-07-18",
-          status: "Being processed",
-          statusClass: "being-processed",
+          status: "Test completed",
+          statusClass: "test-completed",
         },
         {
           name: "Herdi Andana",
           diagnosis: "Cataract",
           registrationDate: "2024-07-18",
-          status: "Being processed",
-          statusClass: "being-processed",
+          status: "Test completed",
+          statusClass: "test-completed",
         },
         {
           name: "Herdi Andana",
           diagnosis: "Cataract",
           registrationDate: "2024-07-18",
-          status: "Being processed",
-          statusClass: "being-processed",
-        },
-        {
-          name: "Herdi Andana",
-          diagnosis: "Cataract",
-          registrationDate: "2024-07-18",
-          status: "Being processed",
-          statusClass: "being-processed",
+          status: "Test completed",
+          statusClass: "test-completed",
         },
         {
           name: "oi Andana",
           diagnosis: "Cataract",
           registrationDate: "2024-07-18",
-          status: "Being processed",
-          statusClass: "being-processed",
+          status: "Test completed",
+          statusClass: "test-completed",
         },
       ],
     };
@@ -196,6 +203,10 @@ export default {
 <style scoped>
 .container {
   padding: 20px 80px;
+}
+
+.btn-back {
+  display: none;
 }
 
 .status-cards {
@@ -371,5 +382,111 @@ export default {
   padding: 10px 15px;
   cursor: pointer;
   border-radius: 5px;
+}
+
+/* Media Query untuk menyesuaikan layout di Tab */
+@media (max-width: 1024px) {
+  .btn-back {
+    display: inline;
+    padding: 5px;
+    font-size: 25px;
+  }
+
+  .card {
+    width: 43%;
+    padding: 20px;
+    margin-top: 10px;
+  }
+
+  .card p {
+    font-size: 1em;
+  }
+
+  .card .icon {
+    top: 20px;
+    right: 20px;
+    font-size: 2em;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  .search-container {
+    width: 40%;
+    margin-bottom: 20px;
+    margin-left: 27%;
+  }
+
+  .search-input {
+    padding: 10px 18px;
+  }
+
+  .data-table {
+    width: 100%;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 8px;
+  }
+
+  .pagination-left span {
+    font-size: 13px;
+  }
+}
+
+/* Media Query untuk menyesuaikan layout di HP */
+@media (max-width: 768px) {
+  .btn-back {
+    display: inline;
+    padding: 5px;
+    font-size: 25px;
+  }
+
+  .card {
+    width: 35%;
+    padding: 20px;
+    margin-top: 10px;
+  }
+
+  .card p {
+    font-size: 1em;
+  }
+
+  .card .icon {
+    top: 20px;
+    right: 20px;
+    font-size: 2em;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  .patients {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .patients .add-btn,
+  .patients .refresh-btn {
+    padding: 15px 22px;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+
+  .data-table {
+    width: 100%;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 8px;
+  }
+
+  .pagination-left span {
+    font-size: 13px;
+  }
 }
 </style>

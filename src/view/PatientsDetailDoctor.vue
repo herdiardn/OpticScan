@@ -169,17 +169,19 @@ export default {
   height: 100vh;
   overflow: hidden;
   display: flex;
-  justify-content: center; /* Pusatkan card secara horizontal */
+  justify-content: center;
   align-items: flex-start;
 }
 
 .header {
   display: flex;
-  justify-content: space-between; /* Pojok kiri dan kanan */
-  align-items: center; /* Untuk vertikal align tengah */
+  justify-content: space-between;
+  align-items: center;
   position: relative;
   padding: 0px 20px;
   color: blue;
+  border-bottom: 1px solid #2450ff;
+  margin-bottom: 15px;
 }
 h2 {
   font-weight: normal;
@@ -189,7 +191,7 @@ h2 {
   margin: 0 auto;
   border-radius: 10px;
   width: 90%;
-  height: 80%;
+  height: 90%;
   overflow: hidden;
   margin-top: auto;
   margin-bottom: auto;
@@ -201,9 +203,12 @@ h2 {
 }
 .content {
   display: flex;
-  justify-content: flex-start; /* Mengatur elemen-elemen ke arah kiri */
-  align-items: flex-start; /* Agar semua elemen dimulai dari atas */
+  justify-content: flex-start;
+  align-items: flex-start;
   gap: 20px;
+  border-bottom: 1px solid #2450ff;
+  padding: 15px 0px;
+  margin-bottom: 5px;
 }
 .card .image-card {
   width: 400px;
@@ -236,7 +241,7 @@ form {
 }
 
 .form-group input {
-  width: 50%;
+  width: 70%;
   margin-left: -70px;
   padding: 8.5px 10px;
   border-radius: 5px;
@@ -247,7 +252,7 @@ form {
 }
 
 .form-group select {
-  width: 53%;
+  width: 73%;
   margin-left: -70px;
   padding: 8.5px 10px;
   border-radius: 5px;
@@ -288,5 +293,153 @@ form {
   border: 1px solid red;
   border-radius: 50px;
   cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    height: max-content;
+  }
+
+  .card {
+    height: max-content;
+    overflow: hidden;
+    margin: 50px 0px;
+  }
+
+  .header img {
+    width: 70px;
+    height: 30px;
+  }
+
+  .content {
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+  }
+  .card .image-card {
+    width: 70%;
+    height: 400px;
+    margin-left: 0;
+    margin-bottom: 20px;
+    padding: 10px;
+  }
+
+  .card .image-card img {
+    width: 100%;
+    height: 100%;
+  }
+  .data {
+    width: 100%;
+    margin-left: 30px;
+  }
+  form {
+    margin-left: 0px;
+  }
+
+  .form-group input {
+    margin-left: -110px;
+    width: 77%;
+  }
+
+  .form-group select {
+    margin-left: -110px;
+    width: 79.5%;
+  }
+
+  .btn {
+    padding-bottom: 20px;
+  }
+
+  .btn .left-btn {
+    text-align: left;
+    width: 70px;
+    padding: 10px 20px;
+    margin: 5px 20px 5px 20px;
+  }
+
+  .btn .edit-btn {
+    width: 120px;
+    padding: 10px 20px;
+  }
+
+  .btn .cancel-btn {
+    width: 80px;
+    padding: 10px 20px;
+  }
+}
+
+/* Media query for mobile view */
+@media (max-width: 768px) {
+  .container {
+    height: max-content;
+  }
+
+  .card {
+    height: max-content;
+    overflow: hidden;
+    margin: 50px 0px;
+  }
+
+  .header h2 {
+    margin-left: -30px;
+  }
+
+  .content {
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+  }
+  .card .image-card {
+    width: 70%;
+    height: 200px;
+    margin-left: 0;
+    margin-bottom: 20px;
+    padding: 10px;
+  }
+
+  .card .image-card img {
+    width: 100%;
+    height: 100%;
+  }
+  .data {
+    width: 100%;
+    margin-left: 20px;
+  }
+  form {
+    margin-left: 0px;
+  }
+  .form-group label {
+    width: 10%;
+    margin-left: 10px;
+  }
+  .form-group input {
+    margin-left: 50px;
+    width: 55%;
+  }
+  .form-group select {
+    margin-left: 50px;
+    width: 61%;
+  }
+
+  .btn {
+    padding-bottom: 20px;
+  }
+
+  .btn .left-btn {
+    text-align: left;
+    width: 70px;
+    padding: 10px 20px;
+    margin: 5px 20px 5px 20px;
+  }
+
+  .btn .edit-btn {
+    width: 120px;
+    padding: 10px 20px;
+  }
+
+  .btn .cancel-btn {
+    width: 80px;
+    padding: 10px 20px;
+  }
 }
 </style>

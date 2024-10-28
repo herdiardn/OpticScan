@@ -1,7 +1,7 @@
 <template>
   <div class="signup-section">
     <router-link to="/" class="btn-image">
-      <img src="@/assets/logo.png" alt="Button Image" />
+      <img src="@/assets/close.png" alt="Button Image" />
     </router-link>
     <div class="content">
       <h2>Sign Up</h2>
@@ -101,7 +101,7 @@ export default {
 }
 
 .signup-section img {
-  width: 70px;
+  width: 20px;
   position: absolute;
   top: 20px;
   left: 25px;
@@ -179,7 +179,7 @@ input {
 .btn-signup {
   width: 25%;
   padding: 10px;
-  background-color: transparent;
+  background-color: white;
   color: #007bff;
   border: 1px solid #2450ff !important;
   border-radius: 50px;
@@ -215,18 +215,16 @@ input {
     background-color: rgb(255, 255, 255, 0.8);
   }
 
-  /* Mengatur flex-container menjadi flex kolom */
   .flex-container {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Memberi jarak antar input */
+    gap: 10px;
     width: 100%;
   }
 
-  /* Set input-wrapper menjadi full width */
   .input-wrapper,
   .input-wrapper-birth {
-    width: 100%; /* Semua input menjadi 100% */
+    width: 100%;
   }
 
   .form-group {
@@ -234,9 +232,9 @@ input {
     margin-bottom: 20px;
   }
   .btn-signup {
-    width: 20%;
+    width: 30%;
     padding: 10px;
-    background-color: transparent;
+    background-color: white;
     color: #007bff;
     border: 1px solid #2450ff !important;
     border-radius: 50px;

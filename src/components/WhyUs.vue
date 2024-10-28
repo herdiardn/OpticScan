@@ -20,8 +20,8 @@
           alt="Healthcare Innovation Icon"
           class="card-icon"
         />
-        <h3>Healthcare Innovation</h3>
-        <p>Advanced solutions in healthcare for modern hospitals</p>
+        <h3>AI Innovation</h3>
+        <p>Artificial Intelligence (AI) technology for eye health monitoring</p>
       </div>
 
       <!-- Card 3 -->
@@ -31,8 +31,8 @@
           alt="Technology Leadership Icon"
           class="card-icon"
         />
-        <h3>Technology Leadership</h3>
-        <p>Leading-edge technology in medical services</p>
+        <h3>AI Innovation</h3>
+        <p>Artificial Intelligence (AI) technology for eye health monitoring</p>
       </div>
 
       <!-- Card 4 -->
@@ -42,8 +42,8 @@
           alt="Research & Development Icon"
           class="card-icon"
         />
-        <h3>Research & Development</h3>
-        <p>Innovative research in eye health and vision care</p>
+        <h3>AI Innovation</h3>
+        <p>Artificial Intelligence (AI) technology for eye health monitoring</p>
       </div>
 
       <!-- Card 5 -->
@@ -53,8 +53,8 @@
           alt="Patient-Centered Care Icon"
           class="card-icon"
         />
-        <h3>Patient-Centered Care</h3>
-        <p>Focus on delivering personalized and high-quality care</p>
+        <h3>AI Innovation</h3>
+        <p>Artificial Intelligence (AI) technology for eye health monitoring</p>
       </div>
 
       <!-- Card 6 -->
@@ -64,8 +64,8 @@
           alt="Global Reach Icon"
           class="card-icon"
         />
-        <h3>Global Reach</h3>
-        <p>Expanding healthcare solutions worldwide</p>
+        <h3>AI Innovation</h3>
+        <p>Artificial Intelligence (AI) technology for eye health monitoring</p>
       </div>
     </div>
   </section>
@@ -97,8 +97,8 @@ export default {
 
 .container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
-  gap: 30px; /* Space between the cards */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 75px;
   justify-items: center;
 }
 
@@ -107,8 +107,8 @@ export default {
   border-radius: 10px;
   padding: 20px;
   text-align: left;
-  width: 300px;
-  height: 150px;
+  width: 250px;
+  height: 110px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s;
   color: black;
@@ -119,23 +119,77 @@ export default {
 }
 
 .card-icon {
-  height: 45px;
-  margin-bottom: 15px;
+  height: 35px;
 }
 
 h3 {
-  margin: 10px 0;
+  margin-top: 5px;
   font-size: 1.2rem;
 }
 
 p {
+  margin-top: -10px;
   font-size: 0.9rem;
   color: rgba(0, 0, 0, 0.6);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+  .WhyUs-section {
+    height: 150vh;
+  }
   .WhyUs-section h2 {
-    margin-top: -40px;
+    padding: 0 0 30px;
+    margin: 0;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    justify-items: center;
+  }
+
+  .card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: left;
+    width: 300px;
+    height: 150px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    color: black;
+  }
+
+  .card:hover {
+    transform: translateY(-10px);
+  }
+
+  .card-icon {
+    height: 45px;
+    margin-bottom: 15px;
+  }
+
+  h3 {
+    margin: 10px 0;
+    font-size: 1.2rem;
+    padding-bottom: 10px;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.6);
+  }
+}
+
+@media (max-width: 768px) {
+  .WhyUs-section {
+    height: 90vh;
+  }
+
+  .WhyUs-section h2 {
+    padding-bottom: 30px;
+    margin-top: -30px;
   }
 
   .container {
@@ -143,16 +197,17 @@ p {
   }
 
   .card {
-    width: 150px;
-    height: 80px;
+    width: 100px;
+    height: 120px;
   }
   .card-icon {
-    height: 25px;
+    height: 40px;
     margin-bottom: -3px;
   }
 
   h3 {
     font-size: 0.7rem;
+    padding-bottom: 10px;
   }
 
   p {

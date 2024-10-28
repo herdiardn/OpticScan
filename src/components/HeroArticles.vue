@@ -1,6 +1,6 @@
 <template>
   <section id="HeroArticles" class="HeroArticles-section">
-    <p>Article</p>
+    <p>Articles</p>
   </section>
 </template>
 
@@ -22,5 +22,14 @@ export default {
   padding: 0px 0px 0px 75px;
   font-size: 50px;
   font-weight: normal;
+}
+
+@media screen and (max-width: 768px) {
+  .HeroArticles-section {
+    height: 25vh;
+    background-position: center;
+    padding: 0px 0px 0px 25px;
+    font-size: 40px;
+  }
 }
 </style>

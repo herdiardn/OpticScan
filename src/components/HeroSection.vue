@@ -54,11 +54,28 @@ p {
   box-shadow: 0 1px 15px rgba(255, 255, 255, 0.3);
 }
 
+@media screen and (max-width: 1024px) {
+  .hero-section {
+    display: flex;
+    text-align: left;
+    padding-left: 20px;
+  }
+
+  h1 {
+    width: 85%;
+  }
+
+  p {
+    width: 60%;
+  }
+}
+
 /* Media Query for Mobile Responsiveness */
 @media screen and (max-width: 768px) {
   .hero-section {
     justify-content: center;
     text-align: center;
+    background-position: 60% center;
   }
 
   .container {
@@ -67,12 +84,15 @@ p {
   }
 
   h1 {
-    font-size: 30px;
+    font-size: 20px;
+    width: 50%;
+    margin: auto;
+    padding-bottom: 20px;
   }
 
   p {
-    width: 50%;
-    padding-left: 125px;
+    width: 78%;
+    margin: auto;
   }
 }
 </style>

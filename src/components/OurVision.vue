@@ -69,18 +69,50 @@ img {
   object-fit: cover;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .OurVision-section {
     height: 50vh;
   }
   img {
-    width: 250px;
+    width: 500px;
     height: 180px;
     object-fit: cover;
   }
 
   .text-content {
+    text-align: left;
     padding-left: 100px;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 1.6;
+    width: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .OurVision-section {
+    height: 25vh;
+  }
+
+  .image-content {
+    top: 73%;
+    transform: translateY(-50%);
+  }
+  img {
+    width: 250px;
+    height: 100px;
+    object-fit: cover;
+  }
+
+  .text-content {
+    text-align: center;
+    padding-left: 30px;
   }
 
   h1 {

@@ -43,7 +43,7 @@ export default {
 }
 
 .about-section h2 {
-  padding: 0 0 20px 75px;
+  padding: 0 0 20px 80px;
   margin: 0;
 }
 .about-section h2 span {
@@ -59,9 +59,9 @@ export default {
 
 .text-content {
   flex: 2;
-  padding-right: 190px;
+  padding-right: 100px;
   text-align: left;
-  padding-left: 45px;
+  padding-left: 0px;
 }
 
 h1 {
@@ -95,13 +95,11 @@ p {
 
 img {
   width: 500px;
-  height: 420px;
-  padding-right: 45px;
-  width: 450px;
-  height: 400px;
+  height: auto;
+  border-radius: 0px 0px 0px 1000px;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .about-section {
     text-align: center;
     padding-top: 20px;
@@ -110,12 +108,12 @@ img {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: auto; /* Pastikan tinggi otomatis agar mengikuti konten */
+    height: 125vh;
   }
 
   .about-section h2 {
     padding: 0;
-    margin-bottom: 20px;
+    margin-top: -10px;
   }
 
   .container {
@@ -123,15 +121,15 @@ img {
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-width: 100%;
     padding: 0 25px;
     box-sizing: border-box;
+    margin-top: 20px;
   }
 
   img {
-    width: 170px;
+    width: 250px;
     height: auto;
-    margin-bottom: 10px;
+    border-radius: 0px;
   }
 
   .text-content {
@@ -143,13 +141,77 @@ img {
   }
 
   h1 {
-    font-size: 1.5em;
+    font-size: 2em;
+    width: 50%;
+    margin: auto;
+  }
+
+  p {
+    margin: auto;
+    width: 80%;
+    font-size: 15px;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    margin-top: 20px;
+  }
+
+  .btn-about {
+    margin-bottom: 10px;
+    padding: 8px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 95vh;
+  }
+
+  .about-section h2 {
+    padding: 0;
+    margin-top: -40px;
+    margin-bottom: 20px;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0 25px;
+    box-sizing: border-box;
+  }
+
+  img {
+    width: 170px;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 0px;
+  }
+
+  .text-content {
+    padding: 0;
+    margin-top: 20px;
+    width: 100%;
+    order: 2;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 1em;
     width: 100%;
     margin-bottom: 15px;
   }
 
   p {
-    width: 100%;
+    margin: auto;
+    width: 80%;
     font-size: 12px;
     line-height: 1.4;
     margin-bottom: 20px;

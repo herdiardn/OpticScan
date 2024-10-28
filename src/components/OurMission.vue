@@ -71,7 +71,7 @@ p {
 }
 .image-content img {
   width: 700px;
-  height: auto;
+  height: 280px;
   object-fit: cover;
 }
 .image-absolute {
@@ -83,12 +83,12 @@ p {
   z-index: 3;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .OurMission-section {
     height: 50vh;
   }
   .image-content img {
-    width: 250px;
+    width: 500px;
     height: 180px;
     object-fit: cover;
   }
@@ -97,11 +97,47 @@ p {
     position: absolute;
     top: 100px;
     margin-top: -80px;
-    right: -50px;
+    right: -45px;
     z-index: 3;
   }
   .text-content {
-    padding-left: 100px;
+    padding-left: 400px;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  p {
+    font-size: 12px;
+    line-height: 1.6;
+    width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .OurMission-section {
+    height: 25vh;
+  }
+  .image-content {
+    top: 33%;
+    transform: translateY(-50%);
+  }
+  .image-content img {
+    width: 250px;
+    height: 100px;
+    object-fit: cover;
+  }
+  .image-absolute img {
+    width: 65px;
+    position: absolute;
+    top: 10px;
+    margin-top: 20px;
+    right: -45px;
+    z-index: 3;
+  }
+  .text-content {
+    padding-left: 30px;
   }
 
   h1 {
