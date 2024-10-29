@@ -352,6 +352,11 @@ form {
     width: 77%;
   }
 
+  .form-group textarea {
+    margin-left: -110px;
+    width: 77%;
+  }
+
   .form-group select {
     margin-left: -110px;
     width: 79.5%;
@@ -424,6 +429,11 @@ form {
     margin-left: 10px;
   }
   .form-group input {
+    margin-left: 50px;
+    width: 55%;
+  }
+
+  .form-group textarea {
     margin-left: 50px;
     width: 55%;
   }
