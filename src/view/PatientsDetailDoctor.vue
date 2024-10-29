@@ -92,12 +92,12 @@
               </div>
               <div class="form-group">
                 <label for="doctorNote">Doctor's Note</label>
-                <input
+                <textarea
                   type="text"
                   id="doctorNote"
                   v-model="formData.doctorNote"
                   :disabled="!isEditing"
-                />
+                ></textarea>
               </div>
             </form>
           </div>
@@ -241,6 +241,17 @@ form {
 }
 
 .form-group input {
+  width: 70%;
+  margin-left: -70px;
+  padding: 8.5px 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #ccc;
+  outline: none;
+  font-size: 12px;
+}
+
+.form-group textarea {
   width: 70%;
   margin-left: -70px;
   padding: 8.5px 10px;

@@ -171,6 +171,7 @@ nav {
   display: flex;
   justify-content: center;
   flex-grow: 1;
+  padding-left: 50px;
 }
 
 nav ul {
@@ -373,7 +374,9 @@ nav ul li a.active::after {
     flex-direction: column;
     align-items: flex-start;
   }
-
+  .menu {
+    padding-left: 0px;
+  }
   nav.menu-open {
     display: flex;
   }
@@ -466,7 +469,9 @@ nav ul li a.active::after {
     flex-direction: column;
     align-items: flex-start;
   }
-
+  .menu {
+    padding-left: 0px;
+  }
   nav.menu-open {
     display: flex;
   }

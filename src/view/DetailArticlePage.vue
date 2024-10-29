@@ -210,6 +210,7 @@ export default {
 .secondary-image {
   width: 30%;
   float: left;
+  margin-left: 150px;
   margin-right: 20px;
   margin-bottom: 20px;
   border-radius: 10px;
@@ -274,6 +275,7 @@ export default {
   .secondary-image {
     width: 40%;
     padding-left: 20px;
+    margin-left: 80px;
   }
 
   .article-body p {
@@ -337,6 +339,7 @@ export default {
   .secondary-image {
     width: 40%;
     padding-left: 20px;
+    margin-left: 30px;
   }
 
   .article-body p {

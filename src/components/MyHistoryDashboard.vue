@@ -80,9 +80,18 @@
           >
         </div>
         <div class="pagination-right">
-          <button @click="prevPage">Previous</button>
-          <span>1</span>
-          <button @click="nextPage">Next</button>
+          <button @click="prevPage" :disabled="currentPage === 1">
+            Previous
+          </button>
+          <span>
+            {{ currentPage }}
+          </span>
+          <button
+            @click="nextPage"
+            :disabled="currentPage * itemsPerPage >= totalItems"
+          >
+            Next
+          </button>
         </div>
       </div>
     </div>
@@ -98,6 +107,7 @@ export default {
       processingCount: 2,
       currentPage: 1,
       itemsPerPage: 10,
+      totalItems: 12,
       isMobile: window.innerWidth <= 768,
       isTab: window.innerWidth <= 1024,
       data: [
@@ -171,20 +181,36 @@ export default {
           status: "Test completed",
           statusClass: "test-completed",
         },
+        {
+          name: "oi Andana",
+          diagnosis: "Cataract",
+          registrationDate: "2024-07-18",
+          status: "Test completed",
+          statusClass: "test-completed",
+        },
+        {
+          name: "oi Andana",
+          diagnosis: "Cataract",
+          registrationDate: "2024-07-18",
+          status: "Test completed",
+          statusClass: "test-completed",
+        },
       ],
     };
   },
   computed: {
     filteredData() {
+      let filtered = this.data;
       if (this.search) {
         return this.data.filter((item) =>
           item.name.toLowerCase().includes(this.search.toLowerCase())
         );
       }
-      return this.data;
+      const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+      return filtered.slice(startIndex, startIndex + this.itemsPerPage);
     },
-    totalItems() {
-      return this.data.length;
+    totalPages() {
+      return Math.ceil(this.totalItems / this.itemsPerPage);
     },
   },
   methods: {
